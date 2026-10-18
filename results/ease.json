@@ -1,0 +1,86 @@
+{
+  "signature": {
+    "model": "EASE",
+    "parameters": {
+      "reg_weight": 250.0
+    },
+    "common": {
+      "seed": 2026,
+      "reproducibility": true,
+      "use_gpu": false,
+      "worker": 0,
+      "epochs": 300,
+      "stopping_step": 10,
+      "eval_step": 1,
+      "train_batch_size": 2048,
+      "eval_batch_size": 4096,
+      "learner": "adam",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0,
+      "show_progress": false,
+      "save_dataset": false,
+      "save_dataloaders": false,
+      "load_col": {
+        "inter": [
+          "user_id",
+          "item_id",
+          "rating",
+          "timestamp"
+        ]
+      },
+      "eval_args": {
+        "split": {
+          "RS": [
+            0.8,
+            0.1,
+            0.1
+          ]
+        },
+        "group_by": "user",
+        "order": "RO",
+        "mode": "full"
+      },
+      "metrics": [
+        "NDCG",
+        "Recall",
+        "Precision"
+      ],
+      "topk": [
+        10,
+        20
+      ],
+      "valid_metric": "NDCG@10",
+      "metric_decimal_place": 6,
+      "train_neg_sample_args": {
+        "distribution": "uniform",
+        "sample_num": 1,
+        "alpha": 1.0,
+        "dynamic": false,
+        "candidate_num": 0
+      }
+    }
+  },
+  "row": {
+    "id": "ease",
+    "model": "EASE",
+    "reg_weight": 250.0,
+    "seconds": 1.7016832389999763,
+    "valid_ndcg@10": 0.264952,
+    "valid_ndcg@20": 0.29416,
+    "valid_recall@10": 0.247019,
+    "valid_recall@20": 0.367212,
+    "valid_precision@10": 0.178579,
+    "valid_precision@20": 0.141729,
+    "test_ndcg@10": 0.323975,
+    "test_ndcg@20": 0.340409,
+    "test_recall@10": 0.277454,
+    "test_recall@20": 0.396596,
+    "test_precision@10": 0.21983,
+    "test_precision@20": 0.165217
+  },
+  "split_hashes": [
+    "ac371d2a09b70535b9decb6e08680d076e699ba68d7cf32c4a5b61f88489ccb5",
+    "b1be2c9d47f81128c33ab050531858bfa46c61ad0fe09bddb32f3bea53909b3c",
+    "5706fc2cb34ddf5f53842d5c227e797bcdf5788461343ec76bac3f2e4a990dc2"
+  ]
+}
